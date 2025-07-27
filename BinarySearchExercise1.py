@@ -9,10 +9,10 @@ print(result)
 result == output
 test = {
     'input':{
-       'cards' : [4, 2, 1, -1],
-        'query' : 4
+        'cards': [13, 11, 10, 7, 4, 3, 1, 0],
+        'query': 7
     },
-    'output' : 0
+    'output': 3
 }
 locate_cards(**test['input']) == test['output']
 tests = []
@@ -109,4 +109,23 @@ result = locate_card(test['input']['cards'], test['input']['query'])
 print("The expected result is: ", output)
 print("The result is: " , result)
 
-print(" The Result matched the expected Result: ", result == output)     
+print(" The Result matched the expected Result: ", result == output)   
+
+def locate_card(cards, query):
+    lo, hi = 0, len(cards) -1
+
+    while lo <= hi:
+        mid = (lo + hi) // 2
+        mid_number = cards[mid]
+
+        print("lo: ", lo, "hi: ", hi, "mid: ", mid, "mid_number: ", mid_number)
+
+        if mid_number == query:
+            return mid
+        elif mid_number < query:
+            hi = mid - 1
+        elif mid_number > query:
+            lo = mid + 1
+
+    return -1            
+test
