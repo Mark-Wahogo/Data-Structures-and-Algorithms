@@ -107,6 +107,6 @@ def locate_card(cards, query):
 test
 result = locate_card(test['input']['cards'], test['input']['query'])
 print("The expected result is: ", output)
-print("The result is: " , result)
+print("Result is: " , result)
 
 print(" The Result matched the expected Result: ", result == output)     
